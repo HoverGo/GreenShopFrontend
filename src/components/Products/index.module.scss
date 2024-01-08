@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+.products {
+	margin-top: 45px;
+	display: flex;
+	position: relative;
+	.filters {
+		max-width: 310px;
+		background: $background;
+	}
+
+	.rightBlock {
+		padding-left: 50px;
+	}
+}

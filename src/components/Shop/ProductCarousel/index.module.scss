@@ -1,0 +1,80 @@
+@import "../../../variables.scss";
+
+.productCarousel {
+	margin: 60px 0;
+	.title {
+		color: $secondaryColor;
+		font-size: 17px;
+		font-weight: 700;
+		line-height: 16px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid rgba($secondaryColor, 0.3);
+	}
+
+	.carousel {
+		:global(.control-dots .dot) {
+			background-color: $secondaryColor;
+			box-shadow: none;
+			transition: none;
+			width: 12px;
+			height: 12px;
+		}
+		margin-top: 44px;
+
+		&Items {
+			display: flex;
+			.item {
+				text-align: start;
+				width: 220px;
+				height: 377px;
+
+				&:not(:last-child) {
+					margin-right: 26px;
+				}
+				.imgBlock {
+					display: flex;
+					align-items: center;
+					background: $background;
+					width: 220px;
+					height: 255px;
+					img {
+						mix-blend-mode: multiply;
+						background-blend-mode: multiply;
+					}
+				}
+
+				&Name {
+					padding-top: 12px;
+					color: $mainColor;
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 16px;
+				}
+
+				&Price {
+					padding-top: 5px;
+					color: $secondaryColor;
+					font-size: 16px;
+					font-weight: 700;
+					line-height: 16px;
+				}
+
+				&Discount {
+					background: $secondaryColor;
+					position: absolute;
+					display: flex;
+					color: $tertiaryColor;
+					font-size: 18px;
+					font-weight: 500;
+					line-height: 16px;
+					padding-left: 9px;
+					align-items: center;
+					top: 20px;
+					left: 0;
+					width: 95px;
+					height: 35px;
+				}
+			}
+		}
+	}
+}

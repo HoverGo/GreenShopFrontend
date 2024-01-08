@@ -1,0 +1,28 @@
+@import "../../../variables.scss";
+
+.pagination {
+	position: absolute;
+	top: 1555px;
+	right: 0;
+	display: flex;
+	justify-content: end;
+	button {
+		cursor: pointer;
+		margin-right: 10px;
+		background-color: $tertiaryColor;
+		padding: 10px 13px 9px 14px;
+		border: 1px solid $saleColor;
+		border-radius: 4px;
+
+		color: $mainColor;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 16px;
+	}
+
+	.active {
+		background-color: $secondaryColor;
+		color: $tertiaryColor;
+		border: none;
+	}
+}

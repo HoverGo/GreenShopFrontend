@@ -1,0 +1,192 @@
+@import "../../variables.scss";
+
+.footer {
+	background: $background;
+	&Top {
+		display: flex;
+		padding: 25px;
+		.info {
+			display: flex;
+			.card {
+				position: relative;
+				&:not(:last-child) {
+					margin-right: 62px;
+					border-right: 1px solid rgba($secondaryColor, 0.1);
+				}
+				.cyrcle {
+					top: 46px;
+					left: 23px;
+					position: absolute;
+				}
+				.topPlant {
+					top: 25px;
+					left: 39px;
+					position: absolute;
+				}
+				.pot {
+					top: 70px;
+					left: 42px;
+					position: absolute;
+				}
+
+				h5 {
+					margin-top: 135px;
+					padding-bottom: 9px;
+					color: $mainColor;
+					font-size: 17px;
+					font-weight: 700;
+					line-height: 16px;
+				}
+				p {
+					text-align: start;
+					max-width: 204px;
+					padding-bottom: 23px;
+					color: $smallTextColor;
+					font-size: 14px;
+					font-weight: 400;
+					line-height: 22px;
+				}
+			}
+		}
+		.formBlock {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-left: 62px;
+			h4 {
+				padding-top: 6px;
+				padding-bottom: 18px;
+				color: $mainColor;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 16px;
+			}
+			form {
+				display: flex;
+			}
+			.input {
+				width: 269px;
+				height: 40px;
+				padding: 12px;
+				border-radius: 6px 0px 0px 6px;
+				background: #fff;
+				border: none;
+				outline: none;
+			}
+			.inputBtn {
+				cursor: pointer;
+				padding: 12px 25px;
+				border-radius: 0px 6px 6px 0px;
+				background: $secondaryColor;
+				border: none;
+				color: $tertiaryColor;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 16px;
+			}
+			label {
+				color: #acacac;
+				font-family: Cera Pro;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 16px;
+			}
+
+			p {
+				text-align: start;
+				padding-top: 17px;
+				color: $mainColor;
+				font-size: 13px;
+				font-weight: 400;
+				line-height: 22px;
+				max-width: 354px;
+			}
+		}
+	}
+	&Middle {
+		border-bottom: 1px solid rgba($secondaryColor, 0.1);
+		border-top: 1px solid rgba($secondaryColor, 0.1);
+		display: flex;
+		align-items: center;
+		padding-left: 25px;
+		height: 88px;
+		background: rgba($secondaryColor, 0.1);
+
+		div {
+			padding-left: 87px;
+			display: flex;
+			align-items: center;
+			img {
+				padding-right: 9px;
+			}
+			p {
+				max-width: 176px;
+				color: $mainColor;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 22px;
+			}
+		}
+	}
+	&Bottom {
+		display: flex;
+		padding: 33px 155px 29px 23px;
+		border-bottom: 1px solid rgba($secondaryColor, 0.1);
+		.leftBlock {
+			display: flex;
+			justify-content: space-between;
+			.blockLinks {
+				&:not(:last-child) {
+					margin-right: 160px;
+				}
+				.titleText {
+					padding-bottom: 8px;
+					width: 125px;
+					color: $mainColor;
+					font-size: 18px;
+					font-weight: 700;
+					line-height: 16px;
+				}
+			}
+			.links {
+				display: flex;
+				a {
+					color: $mainColor;
+					font-size: 14px;
+					font-weight: 400;
+					line-height: 30px;
+				}
+			}
+		}
+		.rightBlock {
+			max-height: 154px;
+			padding-left: 170px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			h5 {
+				padding-bottom: 20px;
+				color: $mainColor;
+				font-size: 18px;
+				font-weight: 700;
+				line-height: 16px;
+			}
+			.mediaLinks {
+				a {
+					&:not(:last-child) {
+						padding-right: 10px;
+					}
+				}
+			}
+		}
+	}
+	p {
+		padding: 13px 0 6px 0;
+		text-align: center;
+		color: $mainColor;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 30px;
+	}
+}

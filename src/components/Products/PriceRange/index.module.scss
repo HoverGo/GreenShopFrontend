@@ -1,0 +1,70 @@
+@import "../../../variables.scss";
+
+.priceRange {
+	margin-left: 18px;
+	padding-top: 40px;
+	max-width: 225px;
+	div {
+		margin-left: 10px;
+	}
+	h5 {
+		padding-bottom: 20px;
+		color: $mainColor;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 16px;
+	}
+	span {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		display: flex;
+		align-items: center;
+		.spanRange {
+			color: $secondaryColor;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 16px;
+		}
+		.spanPrice {
+			padding-right: 5px;
+			color: $mainColor;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 16px;
+		}
+	}
+
+	button {
+		cursor: pointer;
+
+		padding: 8px 25px;
+		border-radius: 6px;
+		background: $secondaryColor;
+
+		color: $tertiaryColor;
+		font-weight: 700;
+		line-height: 20px;
+	}
+}
+
+.slider {
+	width: 209px;
+
+	:global(.rc-slider-rail) {
+		background-color: rgba($secondaryColor, 0.2);
+	}
+	:global(.rc-slider-track) {
+		background-color: $secondaryColor;
+	}
+	:global(.rc-slider-handle) {
+		background-color: $secondaryColor;
+		width: 15px;
+		height: 15px;
+		border: none;
+		opacity: 1;
+	}
+	:global(.rc-slider-handle-dragging) {
+		border-color: $tertiaryColor !important;
+		box-shadow: 0 0 0 3px $tertiaryColor !important;
+	}
+}

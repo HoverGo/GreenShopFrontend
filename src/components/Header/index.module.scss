@@ -1,0 +1,158 @@
+@import "../../variables.scss";
+
+.header {
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 17px;
+
+    border-bottom: 0.3px solid rgba($secondaryColor, 0.3);
+
+    ul {
+        display: flex;
+        li {
+            &:not(:last-child) {
+                margin-right: 50px;
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        align-items: flex-start;
+
+        .cart {
+            cursor: pointer;
+            margin-right: 30px;
+            position: relative;
+            span {
+                user-select: none;
+                position: absolute;
+                top: 1px;
+                right: -4px;
+                background-color: $secondaryColor;
+                color: $tertiaryColor;
+                padding-left: 4px;
+                border-radius: 50%;
+                height: 15px;
+                width: 15px;
+                font-size: 12px;
+            }
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            padding: 7px 17px;
+            border-radius: 6px;
+            cursor: pointer;
+            background: $secondaryColor;
+            img {
+                padding-right: 4px;
+            }
+            p {
+                color: $tertiaryColor;
+            }
+        }
+    }
+}
+
+.active {
+    font-weight: 700;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 43px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $secondaryColor;
+    }
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    img {
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+    p {
+        color: $mainColor;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.authBg {
+    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex: 1;
+    background: rgba(10, 13, 18, 0.25);
+    z-index: 98;
+
+    .auth {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        z-index: 99;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 656px;
+        background: #fff;
+        border-bottom: 10px solid $secondaryColor;
+    }
+
+    .imgCross {
+        cursor: pointer;
+        margin-top: 12px;
+        margin-left: 458px;
+    }
+
+    .loginMethod {
+        padding-top: 21px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::after {
+            position: absolute;
+            content: "";
+            border-left: 1px solid $mainColor;
+            height: 12px;
+            right: 88px;
+        }
+        .method {
+            cursor: pointer;
+
+            color: $mainColor;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 16px;
+            &:not(:last-child) {
+                padding-right: 27px;
+            }
+        }
+        .methodActive {
+            cursor: pointer;
+            color: $secondaryColor;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 16px;
+            &:not(:last-child) {
+                padding-right: 27px;
+            }
+        }
+    }
+}

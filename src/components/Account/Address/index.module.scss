@@ -1,0 +1,151 @@
+@import "../../../variables.scss";
+
+.addressBlock {
+	margin-left: 28px;
+
+	.addAddress {
+		display: flex;
+		align-items: center;
+	}
+
+	.addedAddresses {
+		margin-bottom: 20px;
+		.adderss {
+			padding: 10px;
+			border: 1px solid $secondaryColor;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+
+			h3 {
+				padding-right: 30px;
+			}
+
+			.addressField {
+				width: 210px;
+				color: $mainColor;
+				font-size: 16px;
+				font-weight: 400;
+				margin-bottom: 0;
+				&:not(:last-child) {
+					padding-bottom: 20px;
+				}
+			}
+			div {
+				display: flex;
+				flex-direction: column;
+
+				&:not(:last-child) {
+					padding-right: 20px;
+				}
+			}
+			button {
+				svg {
+					fill: #727272;
+					width: 24px;
+					height: 24px;
+					cursor: pointer;
+					&:active {
+						fill: red;
+					}
+				}
+			}
+		}
+	}
+	h5 {
+		color: $mainColor;
+		padding-bottom: 9px;
+		font-size: 17px;
+		font-weight: 500;
+		line-height: 16px;
+	}
+	p {
+		margin-bottom: 30px;
+	}
+
+	.formText {
+		display: flex;
+
+		p {
+			margin-bottom: 10px;
+			color: $mainColor;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 15px;
+		}
+	}
+
+	.addBtn {
+		cursor: pointer;
+		padding-left: 308px;
+		color: $secondaryColor;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 16px;
+	}
+
+	input {
+		width: 417px;
+		height: 40px;
+		border-radius: 3px;
+		border: 1px solid #eaeaea;
+		padding: 0 10px;
+		outline: none;
+	}
+
+	.inputBlock {
+		display: flex;
+
+		&:not(:last-child) {
+			padding-bottom: 30px;
+		}
+		.firstForm {
+			margin-right: 30px;
+			position: relative;
+			.arrdown,
+			.arrdownActive {
+				cursor: pointer;
+				position: absolute;
+				top: 35px;
+				right: 10px;
+				width: 24px;
+				height: 24px;
+			}
+			.arrdownActive {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	.inputBlock {
+		display: flex;
+	}
+
+	.dropdownContent {
+		position: absolute;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		max-height: 200px;
+		overflow-y: auto;
+		z-index: 1;
+		width: 100%;
+	}
+
+	.regionList,
+	.stateList {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 8px 16px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #f0f0f0;
+			}
+		}
+	}
+}

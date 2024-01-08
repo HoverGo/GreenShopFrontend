@@ -1,0 +1,97 @@
+@import "../../../variables.scss";
+
+.sorting {
+	display: flex;
+	justify-content: space-between;
+	width: 838px;
+	.category {
+		display: flex;
+		h5 {
+			color: $mainColor;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 16px;
+			cursor: pointer;
+
+			&:not(:last-child) {
+				margin-right: 40px;
+			}
+		}
+		.activeCategory {
+			color: $secondaryColor;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 16px;
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				top: 20px;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: $secondaryColor;
+			}
+		}
+	}
+	.sortBlock {
+		display: flex;
+		position: relative;
+		h5 {
+			padding-right: 9px;
+			color: $mainColor;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 16px;
+		}
+		.arrow {
+			cursor: pointer;
+		}
+		.arrowActive {
+			transform: rotate(180deg);
+		}
+
+		.sortOptions {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			z-index: 55;
+			right: 0;
+			top: 20px;
+			background-color: $background;
+			width: 150px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 5px 1px black;
+			h5 {
+				width: 100%;
+				padding: 10px;
+				color: $mainColor;
+				font-size: 15px;
+				font-weight: 400;
+				line-height: 16px;
+				cursor: pointer;
+				&:hover {
+					padding: 10px;
+					background-color: $secondaryColor;
+					color: $tertiaryColor;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					&:first-child {
+						border-top-right-radius: 10px;
+						border-top-left-radius: 10px;
+					}
+					&:last-child {
+						border-bottom-right-radius: 10px;
+						border-bottom-left-radius: 10px;
+					}
+				}
+			}
+		}
+		.sortOptionsHidden {
+			display: none;
+		}
+	}
+}

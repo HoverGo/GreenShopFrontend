@@ -1,0 +1,588 @@
+@import "../../../variables.scss";
+
+.payment {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+    margin-bottom: 100px;
+    .addedAddresses {
+        margin-bottom: 20px;
+        margin-right: 10px;
+        .adderss {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid $secondaryColor;
+            display: flex;
+            align-items: center;
+            min-height: 110px;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            .cyrcle0 {
+                padding-right: 20px;
+            }
+
+            .cyrcle1 {
+                position: absolute;
+                left: 13px;
+            }
+
+            h3 {
+                width: 150px;
+                padding-right: 20px;
+            }
+
+            .addressField {
+                width: 100%;
+                color: $mainColor;
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 0;
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                &:not(:last-child) {
+                    padding-right: 20px;
+                }
+            }
+            button {
+                svg {
+                    fill: #727272;
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                    &:active {
+                        fill: red;
+                    }
+                }
+            }
+        }
+    }
+
+    .optional {
+        color: $mainColor;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 15px;
+    }
+    .optionalForm {
+        height: 100px;
+        width: 100px;
+    }
+
+    .notes {
+        margin-bottom: 400px;
+        width: 350px;
+        height: 152px;
+        border-radius: 3px;
+        border: 1px solid #eaeaea;
+        padding: 8px;
+        resize: none;
+    }
+
+    .newAdressesLink {
+        display: inline-block;
+    }
+
+    .newAdresses {
+        color: #fff;
+        font-size: 18px;
+        padding: 0 20px;
+        height: 30px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        line-height: 16px;
+        background: $secondaryColor;
+        cursor: pointer;
+    }
+
+    .billingAddress {
+        color: $mainColor;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 16px;
+    }
+    .billingAddress {
+        padding-bottom: 10px;
+    }
+
+    .order {
+        h1 {
+            color: $mainColor;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+
+        .info {
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba($secondaryColor, 0.3);
+            padding-bottom: 11px;
+            h3 {
+                color: $mainColor;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 16px;
+
+                &:last-child {
+                    margin-right: 17px;
+                }
+            }
+        }
+
+        .card {
+            margin-top: 10px;
+            background: #fbfbfb;
+            width: 405px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img {
+                width: 70px;
+                height: 70px;
+                mix-blend-mode: multiply;
+            }
+
+            &Info {
+                padding-left: 10px;
+                width: 200px;
+                &Name {
+                    color: $mainColor;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+                &Sku {
+                    padding-top: 6px;
+                    display: flex;
+                    .sku {
+                        color: $saleColor;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }
+                    .number {
+                        color: $smallTextColor;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 16px;
+                    }
+                }
+            }
+            .size {
+                width: 50px;
+            }
+            .quantity {
+                color: $smallTextColor;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16px;
+                width: 50px;
+            }
+            .price {
+                color: $secondaryColor;
+                padding-right: 16px;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
+
+        .pricingCards {
+            .pricing {
+                display: flex;
+                justify-content: space-between;
+                &:first-of-type {
+                    margin-top: 30px;
+                }
+                &:not(:last-child) {
+                    padding-bottom: 21px;
+                }
+                .text {
+                    color: $mainColor;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 16px;
+                }
+                .price {
+                    color: $mainColor;
+
+                    font-size: 18px;
+
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+            }
+            .total {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0 30px 0;
+                border-top: 1px solid rgba($secondaryColor, 0.3);
+                padding-top: 15px;
+                p {
+                    color: $mainColor;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 16px;
+                }
+
+                .price {
+                    color: $secondaryColor;
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 16px;
+                }
+            }
+        }
+        .checkout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            background: $secondaryColor;
+            border-radius: 3px;
+            cursor: pointer;
+
+            color: $tertiaryColor;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+        .continue {
+            margin-top: 15px;
+            color: $secondaryColor;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .methods {
+            h4 {
+                margin-bottom: 19px;
+            }
+            .method,
+            .methodNone {
+                cursor: pointer;
+                border-radius: 3px;
+                border: 1px solid #46a358;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                position: relative;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+                .cyrcle0 {
+                    padding-left: 11px;
+                }
+
+                .cyrcle1 {
+                    position: absolute;
+                    left: 14px;
+                }
+                .acceptedMethods {
+                    padding-left: 10px;
+                }
+                h3 {
+                    padding-left: 10px;
+                    color: $mainColor;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 16px;
+                }
+            }
+            .Cross {
+                padding-left: 11px;
+                padding-bottom: 5px;
+                font-size: 22px;
+                font-weight: 300;
+            }
+            .methodNone {
+                border: 1px solid $smallTextColor;
+                cursor: not-allowed;
+            }
+        }
+
+        .placeOrder,
+        .placeOrderDisabled {
+            margin-top: 50px;
+
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+
+            cursor: pointer;
+            background: $secondaryColor;
+            width: 100%;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+        }
+
+        .placeOrderDisabled {
+            cursor: not-allowed;
+            background: gray;
+            color: $mainColor;
+        }
+    }
+
+    .modalOverlay {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 13, 18, 0.25);
+        .modal {
+            width: 578px;
+            height: 850px;
+            background: #fff;
+            border-bottom: 10px solid $secondaryColor;
+        }
+        .thanksBlock {
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: column;
+            background: rgba(70, 163, 88, 0.06);
+            .crossImg {
+                position: absolute;
+                cursor: pointer;
+                right: 14px;
+                top: 17px;
+                width: 22px;
+                height: 22px;
+            }
+            .thanksImg {
+                margin-top: 30px;
+                width: 100px;
+                height: 100px;
+            }
+            .thanksText {
+                padding-top: 16px;
+                padding-bottom: 15px;
+                color: $smallTextColor;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+        }
+
+        .allInfoBlock {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 42px;
+            border-top: 1px solid rgba(70, 163, 88, 0.2);
+            border-bottom: 1px solid rgba(70, 163, 88, 0.2);
+
+            .info {
+                &:not(:first-child) {
+                    border-left: 1px solid rgba(70, 163, 88, 0.2);
+                    padding-left: 23px;
+                }
+            }
+
+            .mark {
+                color: $smallTextColor;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 16px;
+                padding-bottom: 5px;
+            }
+            .value {
+                color: $smallTextColor;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
+
+        .orderDetails {
+            padding: 20px 42px;
+            .orderDetailsText {
+                color: $mainColor;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+            .order {
+                padding-top: 15px;
+                .orderMarkText {
+                    border-bottom: 1px solid rgba(70, 163, 88, 0.2);
+                    padding-bottom: 11px;
+                    display: flex;
+                    justify-content: space-between;
+                    p {
+                        color: $mainColor;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 16px;
+                    }
+                    .qty {
+                        padding-left: 242px;
+                        padding-right: 70px;
+                    }
+                    .subtotal {
+                        padding-right: 25px;
+                    }
+                }
+                .orderCards {
+                    max-height: 250px;
+                    overflow-y: auto;
+                    .orderCard {
+                        background: #fbfbfb;
+                        margin-top: 11px;
+                        display: flex;
+                        align-items: center;
+
+                        justify-content: start;
+
+                        img {
+                            width: 70px;
+                            height: 70px;
+                            mix-blend-mode: multiply;
+                        }
+                        .orderCardInfo {
+                            width: 250px;
+                            padding-left: 11px;
+                            .namePot {
+                                color: $mainColor;
+                                font-size: 17px;
+                                font-weight: 500;
+                                line-height: 16px;
+                            }
+                            .skuPot {
+                                padding-top: 6px;
+                                color: $smallTextColor;
+                                font-size: 15px;
+                                font-weight: 400;
+                                line-height: 16px;
+                                span {
+                                    color: $saleColor;
+                                    font-size: 15px;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                        }
+                        .orderCardQuantity {
+                            margin-left: 60px;
+                            width: 70px;
+                            color: $smallTextColor;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 16px;
+                        }
+                        .orderCardPrice {
+                            width: 150px;
+                            padding-left: 25px;
+                            margin-left: 15px;
+                            padding-right: 10px;
+                            color: $secondaryColor;
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 16px;
+                        }
+                    }
+                }
+
+                .finalInfoBlock {
+                    border-bottom: 1px solid rgba(70, 163, 88, 0.2);
+                    padding-bottom: 21px;
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: end;
+                    .finalInfo {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 320px;
+                        &:not(:last-child) {
+                            padding-bottom: 25px;
+                        }
+                        .shipping {
+                            color: $mainColor;
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 16px;
+                        }
+                        .shippingPrice {
+                            color: $mainColor;
+                            font-size: 18px;
+                            font-weight: 500;
+                            line-height: 16px;
+                        }
+                        .total {
+                            color: $mainColor;
+                            font-size: 16px;
+                            font-weight: 700;
+                            line-height: 16px;
+                        }
+                        .totalPrice {
+                            color: $secondaryColor;
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .trackBlock {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            p {
+                width: 483px;
+                margin-bottom: 50px;
+                color: $smallTextColor;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22px;
+            }
+            .trackBtn {
+                border-radius: 5px;
+                background: $secondaryColor;
+                padding: 16px 18px 13px 18px;
+                cursor: pointer;
+
+                color: $tertiaryColor;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
+    }
+}

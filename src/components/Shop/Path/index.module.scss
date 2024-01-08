@@ -1,0 +1,19 @@
+@import "../../../variables.scss";
+
+.path {
+	display: flex;
+	align-items: center;
+	margin-top: 36px;
+	.home {
+		color: $mainColor;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 16px;
+	}
+	p {
+		color: $mainColor;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 16px;
+	}
+}
