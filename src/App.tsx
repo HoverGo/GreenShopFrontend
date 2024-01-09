@@ -9,26 +9,44 @@ import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
 
 const App: React.FC = () => {
-	return (
-		<>
-			<Routes>
-				<Route index path="/" element={<Home />} />
-				<Route
-					path="/account"
-					element={isUserLoggedIn() ? <Account /> : <Navigate to="/" replace={true} />}
-				/>
-				<Route index path="/shop/:id" element={<Shop />} />
-				<Route
-					path="/shop/cart"
-					element={isUserLoggedIn() ? <Cart /> : <Navigate to="/" replace={true} />}
-				/>
-				<Route
-					path="/Shop/Checkout"
-					element={isUserLoggedIn() ? <Checkout /> : <Navigate to="/" replace={true} />}
-				/>
-			</Routes>
-		</>
-	);
+    return (
+        <>
+            <Routes>
+                <Route index path="/" element={<Home />} />
+                <Route
+                    path="/account"
+                    element={
+                        isUserLoggedIn() ? (
+                            <Account />
+                        ) : (
+                            <Navigate to="/" replace={true} />
+                        )
+                    }
+                />
+                <Route index path="/shop/:id" element={<Shop />} />
+                <Route
+                    path="/shop/cart"
+                    element={
+                        isUserLoggedIn() ? (
+                            <Cart />
+                        ) : (
+                            <Navigate to="/" replace={true} />
+                        )
+                    }
+                />
+                <Route
+                    path="/Shop/Checkout"
+                    element={
+                        isUserLoggedIn() ? (
+                            <Checkout />
+                        ) : (
+                            <Navigate to="/" replace={true} />
+                        )
+                    }
+                />
+            </Routes>
+        </>
+    );
 };
 
 export default App;

@@ -4,6 +4,8 @@ import { getAuthHeaders } from "../../../api/auth";
 import Delete from "../../OrderQuantitySelector/svg/delete";
 import axios from "axios";
 
+import API_URL from "../../../api/apiConfig";
+
 import s from "./index.module.scss";
 
 export interface OrderItem {
@@ -79,7 +81,7 @@ const Payment: React.FC = () => {
     const fetchItems = () => {
         const authHeaders = getAuthHeaders();
         axios
-            .get<OrderInfo>("http://127.0.0.1:8000/shop/cart/", authHeaders)
+            .get<OrderInfo>(`${API_URL}/cart/`, authHeaders)
             .then((response) => {
                 setOrderInfo(response.data);
             })
@@ -91,7 +93,7 @@ const Payment: React.FC = () => {
     const fetchShippingAddresses = () => {
         const token = getAuthHeaders();
         axios
-            .get("http://127.0.0.1:8000/shop/shippingAddress/", token)
+            .get(`${API_URL}/shippingAddress/`, token)
             .then((response) => {
                 setShippingAddress(response.data);
             })
@@ -119,7 +121,7 @@ const Payment: React.FC = () => {
         };
 
         axios
-            .delete("http://127.0.0.1:8000/shop/shippingAddress/", {
+            .delete(`${API_URL}/shippingAddress/`, {
                 headers: {
                     Authorization: authHeaders?.headers?.Authorization,
                 },
@@ -130,10 +132,7 @@ const Payment: React.FC = () => {
                     `Shipping address with ID ${addressIdToDelete} deleted successfully`
                 );
                 axios
-                    .get(
-                        "http://127.0.0.1:8000/shop/shippingAddress/",
-                        authHeaders
-                    )
+                    .get(`${API_URL}/shippingAddress/`, authHeaders)
                     .then((response) => {
                         setShippingAddress(response.data);
                     })
@@ -180,7 +179,7 @@ const Payment: React.FC = () => {
         }
 
         axios
-            .post("http://127.0.0.1:8000/shop/transaction/", requestData, {
+            .post(`${API_URL}/transaction/`, requestData, {
                 headers: {
                     Authorization: authHeaders?.headers?.Authorization,
                 },

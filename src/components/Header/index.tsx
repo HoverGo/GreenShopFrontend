@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { isUserLoggedIn } from "../../api/auth";
 import { getAuthHeaders } from "../../api/auth";
+import API_URL from "../../api/apiConfig";
 
 import s from "./index.module.scss";
 import Login from "../Auth/Login";
@@ -28,7 +29,7 @@ const Header: React.FC = () => {
         const token = getAuthHeaders();
 
         axios
-            .get(`http://127.0.0.1:8000/shop/customer/`, token)
+            .get(`${API_URL}/customer/`, token)
             .then((response) => {
                 setUserData(response.data);
             })
@@ -126,7 +127,7 @@ const Header: React.FC = () => {
                         {userData?.profileImg ? (
                             <img
                                 width={28}
-                                src={`http://127.0.0.1:8000${userData.profileImg}`}
+                                src={`${API_URL}${userData.profileImg}`}
                                 alt="user"
                             />
                         ) : (

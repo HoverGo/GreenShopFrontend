@@ -6,6 +6,7 @@ import Star from "./svg/Star";
 import Cyrcle from "./svg/Cyrcle";
 import Heart from "./svg/Heart";
 import { getAuthHeaders } from "../../../api/auth";
+import API_URL from "../../../api/apiConfig";
 
 type Rating = {
     icon: React.ReactNode;
@@ -146,7 +147,7 @@ const ProductCart: React.FC = () => {
         try {
             const authHeaders = getAuthHeaders();
             await axios.post(
-                `http://127.0.0.1:8000/shop/product/reviews/${id}/`,
+                `${API_URL}/product/reviews/${id}/`,
                 {
                     rating: starsSelected,
                     text: reviewText,
@@ -155,7 +156,7 @@ const ProductCart: React.FC = () => {
             );
 
             const updatedProductResponse = await axios.get(
-                `http://127.0.0.1:8000/shop/product/${id}/`
+                `${API_URL}/product/${id}/`
             );
             setProduct(updatedProductResponse.data[0]);
 
@@ -175,7 +176,7 @@ const ProductCart: React.FC = () => {
                 setIsFavoriteActive(false);
             } else {
                 const response = await axios.post(
-                    `http://127.0.0.1:8000/shop/product/favourite/${id}/`,
+                    `${API_URL}/product/favourite/${id}/`,
                     {},
                     authHeaders
                 );
@@ -193,7 +194,7 @@ const ProductCart: React.FC = () => {
         try {
             const authHeaders = getAuthHeaders();
             await axios.delete(
-                `http://127.0.0.1:8000/shop/product/favourite/${id}/`,
+                `${API_URL}/product/favourite/${id}/`,
                 authHeaders
             );
             console.log("Product removed from favorites");
@@ -212,7 +213,7 @@ const ProductCart: React.FC = () => {
             try {
                 const authHeaders = getAuthHeaders();
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/shop/product/favourite/${id}/`,
+                    `${API_URL}/product/favourite/${id}/`,
                     authHeaders
                 );
 
@@ -266,7 +267,7 @@ const ProductCart: React.FC = () => {
         if (id) {
             const authHeaders = getAuthHeaders();
             axios
-                .get(`http://127.0.0.1:8000/shop/product/${id}/`, authHeaders)
+                .get(`${API_URL}/product/${id}/`, authHeaders)
                 .then((response) => {
                     setProduct(response.data[0]);
                     setSelectedImage(`/${response.data[0].mainImg}`);
@@ -305,7 +306,7 @@ const ProductCart: React.FC = () => {
                 }
 
                 await axios.post(
-                    `http://127.0.0.1:8000/shop/orderItem/${id}/`,
+                    `${API_URL}/orderItem/${id}/`,
                     payload,
                     authHeaders
                 );

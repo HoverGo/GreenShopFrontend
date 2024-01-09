@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import s from "./index.module.scss";
 
+import API_URL from "../../../api/apiConfig";
+
 import { getAuthHeaders } from "../../../api/auth";
 
 const Details: React.FC = () => {
@@ -35,7 +37,7 @@ const Details: React.FC = () => {
                 };
 
                 const response = await axios.post(
-                    "http://127.0.0.1:8000/shop/customer/avatar/",
+                    `${API_URL}/customer/avatar/`,
                     profileImg,
                     config
                 );
@@ -58,7 +60,7 @@ const Details: React.FC = () => {
     const handleDeleteAvatar = async () => {
         try {
             const token = getAuthHeaders();
-            await axios.delete("http://127.0.0.1:8000/shop/customer/avatar/", {
+            await axios.delete(`${API_URL}/customer/avatar/`, {
                 headers: {
                     Authorization: token?.headers?.Authorization,
                 },
@@ -76,7 +78,7 @@ const Details: React.FC = () => {
         try {
             const token = getAuthHeaders();
             const response = await axios.post(
-                "http://127.0.0.1:8000/shop/customer/changePassword/",
+                `${API_URL}/customer/changePassword/`,
                 {
                     currentPassword: currentPasswordRef.current?.value,
                     password: newPasswordRef.current?.value,
