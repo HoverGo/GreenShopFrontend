@@ -1,3 +1,3 @@
-const API_URL = "http://127.0.0.1:8000/api/shop";
+const API_URL = "https://greenshopbackend.up.railway.app/api/shop";
 
 export default API_URL;
