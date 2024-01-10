@@ -37,7 +37,7 @@ const Details: React.FC = () => {
                 };
 
                 const response = await axios.post(
-                    `https://greenshopbackend.up.railway.app/customer/avatar/`,
+                    `${API_URL}/customer/avatar/`,
                     profileImg,
                     config
                 );
