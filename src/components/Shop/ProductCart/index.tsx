@@ -419,7 +419,7 @@ const ProductCart: React.FC = () => {
                                 handleModalOpen();
                             }}
                             className={s.bigImg}
-                            src={`https://greenshopbackend.up.railway.app${selectedImage}`}
+                            src={selectedImage}
                         />
                         {modalOpen && (
                             <div className={s.modal}>
