@@ -23,6 +23,7 @@
                     background: $background;
                     cursor: pointer;
                     .smallImg {
+                        height: 100%;
                         width: 100px;
                         mix-blend-mode: multiply;
                     }
