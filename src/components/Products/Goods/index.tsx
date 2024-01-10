@@ -241,10 +241,9 @@ const Goods: React.FC<GoodsProps> = ({
             <div className={s.cards}>
                 {displayedItems.map((item) => (
                     <div key={item.id} className={s.card}>
-                        <div className={s.cardImg}>
-                            <Link to={`/shop/${item.id}`}>
-                                <img src={item.mainImg} alt={item.name} />
-                            </Link>
+                        <Link to={`/shop/${item.id}`} className={s.cardImg}>
+                            <img src={item.mainImg} alt={item.name} />
+
                             {item.discount ? (
                                 <p className={s.discount}>
                                     {item.discountPercentage}% OFF
@@ -262,7 +261,7 @@ const Goods: React.FC<GoodsProps> = ({
                                     <Heart />
                                 </button>
                             </div>
-                        </div>
+                        </Link>
                         <div className={s.goodsInfo}>
                             <p className={s.goodsName}>{item.name}</p>
                             <div className={s.goodsPrices}>
