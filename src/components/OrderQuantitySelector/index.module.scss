@@ -250,7 +250,8 @@
             font-size: 15px;
             font-weight: 700;
             line-height: 16px;
-
+        }
+        .checkout {
             &:hover {
                 background-color: darken($secondaryColor, 10%);
             }
