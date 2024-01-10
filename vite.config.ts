@@ -11,7 +11,7 @@ export default defineConfig({
         },
         proxy: {
             "/api": {
-                target: "https://greenshopbackend.up.railway.app/", // замените на ваш адрес API
+                target: "https://greenshopfrontend-production.up.railway.app/", // замените на ваш адрес API
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },
