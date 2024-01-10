@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import API_URL from "./apiConfig";
 
 interface RegisterData {
     username: string;
@@ -13,7 +14,7 @@ interface LoginData {
     password: string;
 }
 
-const apiBaseUrl = "http://localhost:8000/shop/";
+const apiBaseUrl = `${API_URL}/`;
 
 let tokenRefreshInterval: NodeJS.Timeout;
 
