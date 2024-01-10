@@ -61,7 +61,7 @@ const ProductCarousel: React.FC = () => {
                             >
                                 <img
                                     className={s.imgBlock}
-                                    src={`/${item.mainImg}`}
+                                    src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
                                     alt={item.name}
                                 />
                                 {item.discount ? (
