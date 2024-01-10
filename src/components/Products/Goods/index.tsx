@@ -243,7 +243,6 @@ const Goods: React.FC<GoodsProps> = ({
                     <div key={item.id} className={s.card}>
                         <Link to={`/shop/${item.id}`} className={s.cardImg}>
                             <img
-                                className={s.cardImg}
                                 src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
                                 alt={item.name}
                             />

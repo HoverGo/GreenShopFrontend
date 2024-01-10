@@ -1,163 +1,166 @@
 @import "../../../variables.scss";
 
 .goods {
-	margin-top: 31px;
-	max-width: 838px;
-	min-height: 1465px;
-	margin-bottom: 180px;
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		grid-column-gap: 30px;
-		grid-row-gap: 70px;
-		.card {
-			.cardImg {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				width: 258px;
-				height: 391px;
-				background: $background;
-				cursor: pointer;
-				position: relative;
+    margin-top: 31px;
+    max-width: 838px;
+    min-height: 1465px;
+    margin-bottom: 180px;
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 70px;
+        .card {
+            .cardImg {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 258px;
+                height: 391px;
+                background: $background;
+                cursor: pointer;
+                position: relative;
 
-				.discount {
-					background: $secondaryColor;
-					position: absolute;
-					display: flex;
-					color: $tertiaryColor;
-					font-size: 18px;
-					font-weight: 500;
-					line-height: 16px;
-					padding-left: 9px;
-					align-items: center;
-					top: 20px;
-					left: 0;
-					width: 95px;
-					height: 35px;
-				}
+                .discount {
+                    background: $secondaryColor;
+                    position: absolute;
+                    display: flex;
+                    color: $tertiaryColor;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    padding-left: 9px;
+                    align-items: center;
+                    top: 20px;
+                    left: 0;
+                    width: 95px;
+                    height: 35px;
+                }
 
-				&::after {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 1px;
-					background: $secondaryColor;
-					opacity: 0;
-					transition: $transition;
-				}
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background: $secondaryColor;
+                    opacity: 0;
+                    transition: $transition;
+                }
 
-				&:hover {
-					&::after {
-						opacity: 1;
-					}
-				}
+                &:hover {
+                    &::after {
+                        opacity: 1;
+                    }
+                }
 
-				img {
-					mix-blend-mode: multiply;
-					background-blend-mode: multiply;
-				}
+                img {
+                    mix-blend-mode: multiply;
+                    background-blend-mode: multiply;
 
-				.hoverLinks {
-					display: flex;
-					justify-content: center;
-					opacity: 0;
-					transition: $transition;
-					display: flex;
-					position: absolute;
-					bottom: 10px;
+                    width: 100%;
+                    height: 100%;
+                }
 
-					.favorite {
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						padding: 8px;
-						background-color: $tertiaryColor;
-						border-radius: 4px;
-						cursor: pointer;
-						svg {
-							g {
-								path {
-									fill: $mainColor;
-								}
-							}
-						}
-						&:not(:last-child) {
-							margin-right: 25px;
-						}
-					}
-					.favoriteActive {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						padding: 7px;
-						border-radius: 4px;
-						background: #ffc0cb;
-						border: 1px solid #ffc0cb;
-						cursor: pointer;
-						svg {
-							g {
-								path {
-									fill: white;
-								}
-							}
-						}
-					}
-					.cartAcitve {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						padding: 7px;
-						border-radius: 4px;
-						background: $secondaryColor;
-						border: 1px solid $secondaryColor;
-						cursor: pointer;
-						svg {
-							g {
-								path {
-									fill: white;
-								}
-							}
-						}
-					}
-				}
+                .hoverLinks {
+                    display: flex;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: $transition;
+                    display: flex;
+                    position: absolute;
+                    bottom: 10px;
 
-				&:hover .hoverLinks {
-					opacity: 1;
-				}
-			}
-		}
-	}
-	.goodsInfo {
-		padding-top: 13px;
-		.goodsName {
-			color: $mainColor;
-			font-size: 16px;
-			font-weight: 400;
-			line-height: 16px;
-		}
-		.goodsPrices {
-			display: flex;
-			align-items: center;
-			padding-top: 6px;
-			.main {
-				padding-right: 16px;
-				color: $secondaryColor;
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 16px;
-			}
-			.sale {
-				text-decoration: line-through;
-				color: $saleColor;
-				font-size: 18px;
-				font-weight: 400;
-				line-height: 16px;
-			}
-		}
-	}
+                    .favorite {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 8px;
+                        background-color: $tertiaryColor;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        svg {
+                            g {
+                                path {
+                                    fill: $mainColor;
+                                }
+                            }
+                        }
+                        &:not(:last-child) {
+                            margin-right: 25px;
+                        }
+                    }
+                    .favoriteActive {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 7px;
+                        border-radius: 4px;
+                        background: #ffc0cb;
+                        border: 1px solid #ffc0cb;
+                        cursor: pointer;
+                        svg {
+                            g {
+                                path {
+                                    fill: white;
+                                }
+                            }
+                        }
+                    }
+                    .cartAcitve {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 7px;
+                        border-radius: 4px;
+                        background: $secondaryColor;
+                        border: 1px solid $secondaryColor;
+                        cursor: pointer;
+                        svg {
+                            g {
+                                path {
+                                    fill: white;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:hover .hoverLinks {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .goodsInfo {
+        padding-top: 13px;
+        .goodsName {
+            color: $mainColor;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 16px;
+        }
+        .goodsPrices {
+            display: flex;
+            align-items: center;
+            padding-top: 6px;
+            .main {
+                padding-right: 16px;
+                color: $secondaryColor;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+            .sale {
+                text-decoration: line-through;
+                color: $saleColor;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+        }
+    }
 }
