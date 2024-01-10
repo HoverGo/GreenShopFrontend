@@ -242,7 +242,10 @@ const Goods: React.FC<GoodsProps> = ({
                 {displayedItems.map((item) => (
                     <div key={item.id} className={s.card}>
                         <Link to={`/shop/${item.id}`} className={s.cardImg}>
-                            <img src={item.mainImg} alt={item.name} />
+                            <img
+                                src={`${API_URL}${item.mainImg}`}
+                                alt={item.name}
+                            />
 
                             {item.discount ? (
                                 <p className={s.discount}>
