@@ -1,3 +1,4 @@
+# rewrites.yaml
 rules:
-    - src: "/shop/.*" # или более точное регулярное выражение для конкретного пути
+    - src: ".*"
       dest: "/index.html"
