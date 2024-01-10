@@ -1,0 +1,4 @@
+# rewrites.yaml
+rules:
+    - src: ".*"
+      dest: "/index.html"
