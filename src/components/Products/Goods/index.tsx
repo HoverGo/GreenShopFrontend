@@ -19,6 +19,7 @@ interface Goods {
     rating: number;
     review: number;
     size: Size[];
+    newArriwals: boolean;
     categories: {
         id: number;
         name: string;
@@ -41,6 +42,7 @@ interface GoodsProps {
         React.SetStateAction<{ [key: string]: number }>
     >;
     isSaleClicked: boolean;
+    isNewArrivalsClicked: boolean;
     sortBy: string;
 }
 
@@ -69,6 +71,7 @@ const Goods: React.FC<GoodsProps> = ({
     selectedCategory,
     setCategoriesData,
     isSaleClicked,
+    isNewArrivalsClicked,
     sortBy,
 }) => {
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -79,6 +82,8 @@ const Goods: React.FC<GoodsProps> = ({
     const itemsPerPage = 9;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
+
+    console.log(items);
 
     useEffect(() => {
         axios
@@ -151,6 +156,10 @@ const Goods: React.FC<GoodsProps> = ({
             filtered = filtered.filter((item) => item.discount === true);
         }
 
+        if (isNewArrivalsClicked) {
+            filtered = filtered.filter((item) => item.newArriwals === true);
+        }
+
         filtered = filtered.filter((item) => {
             const itemPrice = parseFloat(item.salePrice.slice(1));
             return itemPrice >= priceRange[0] && itemPrice <= priceRange[1];
@@ -163,6 +172,7 @@ const Goods: React.FC<GoodsProps> = ({
         selectedSize,
         selectedCategory,
         isSaleClicked,
+        isNewArrivalsClicked,
         sortBy,
     ]);
 
@@ -241,11 +251,13 @@ const Goods: React.FC<GoodsProps> = ({
             <div className={s.cards}>
                 {displayedItems.map((item) => (
                     <div key={item.id} className={s.card}>
-                        <Link to={`/shop/${item.id}`} className={s.cardImg}>
-                            <img
-                                src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
-                                alt={item.name}
-                            />
+                        <div className={s.cardImg}>
+                            <Link to={`/shop/${item.id}`}>
+                                <img
+                                    src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
+                                    alt={item.name}
+                                />
+                            </Link>
 
                             {item.discount ? (
                                 <p className={s.discount}>
@@ -264,7 +276,7 @@ const Goods: React.FC<GoodsProps> = ({
                                     <Heart />
                                 </button>
                             </div>
-                        </Link>
+                        </div>
                         <div className={s.goodsInfo}>
                             <p className={s.goodsName}>{item.name}</p>
                             <div className={s.goodsPrices}>

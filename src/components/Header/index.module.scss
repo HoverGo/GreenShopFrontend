@@ -16,6 +16,9 @@
             &:not(:last-child) {
                 margin-right: 50px;
             }
+            &:hover {
+                color: darken($secondaryColor, 10%);
+            }
         }
     }
 

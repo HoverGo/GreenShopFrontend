@@ -66,8 +66,8 @@
                 }
 
                 .hoverLinks {
-                    display: flex;
                     justify-content: center;
+
                     opacity: 0;
                     transition: $transition;
                     display: flex;
@@ -78,6 +78,7 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        padding: 10px;
                         padding: 8px;
                         background-color: $tertiaryColor;
                         border-radius: 4px;

@@ -85,6 +85,9 @@
                     text-align: center;
                     background: $secondaryColor;
                     border-radius: 3px;
+                    &:hover {
+                        background-color: darken($secondaryColor, 10%);
+                    }
                 }
                 .removeBtn {
                     color: $mainColor;
@@ -133,6 +136,9 @@
         width: 152px;
         height: 40px;
         border-radius: 3px;
+        &:hover {
+            background-color: darken($secondaryColor, 10%);
+        }
     }
 
     .passwordChanged {
