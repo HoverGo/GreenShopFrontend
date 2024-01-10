@@ -1,0 +1,3 @@
+rules:
+    - src: "/shop/.*"
+      dest: "/index.html"
