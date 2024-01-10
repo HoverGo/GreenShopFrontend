@@ -126,6 +126,8 @@ const ProductCart: React.FC = () => {
     const [isAlreadyAdded, setIsAlreadyAdded] = useState(false);
     const [isSizeSelected, setIsSizeSelected] = useState(false);
 
+    console.log(selectedImage);
+
     const averageRating = product?.reviews
         ? calculateAverageRating(product.reviews)
         : 0;
@@ -270,7 +272,11 @@ const ProductCart: React.FC = () => {
                 .get(`${API_URL}/product/${id}/`, authHeaders)
                 .then((response) => {
                     setProduct(response.data[0]);
-                    setSelectedImage(`${response.data[0].mainImg}`);
+                    setSelectedImage(
+                        `${"https://greenshopbackend.up.railway.app"}${
+                            response.data[0].mainImg
+                        }`
+                    );
 
                     const sizesFromResponse = response.data[0].size || [];
                     setAvailableSizes(sizesFromResponse);

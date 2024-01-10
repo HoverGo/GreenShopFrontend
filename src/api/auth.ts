@@ -70,6 +70,7 @@ export const login = async (userData: LoginData): Promise<void> => {
             Cookies.set("refreshToken", refresh, { expires: 30 });
 
             startTokenRefreshInterval();
+            window.location.reload();
         } else {
             console.error("Tokens are missing in the response");
             throw new Error("Tokens are missing");
