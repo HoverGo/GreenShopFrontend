@@ -187,7 +187,7 @@ const OrderQuantitySelector: React.FC = () => {
                             <img
                                 width={70}
                                 height={70}
-                                src={`/${item.mainImg}`}
+                                src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
                                 alt="mainImg"
                             />
                             <div className={s.nameSku}>

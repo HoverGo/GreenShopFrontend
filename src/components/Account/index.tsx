@@ -11,6 +11,7 @@ const AccountInfo: React.FC = () => {
 	const [showAddress, setShowAddress] = useState(false);
 	const [showWishlist, setShowWishlist] = useState(false);
 
+
 	const handleShowDetails = () => {
 		setShowDetails(true);
 		setShowAddress(false);

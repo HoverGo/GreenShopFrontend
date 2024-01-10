@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                         {userData?.profileImg ? (
                             <img
                                 width={28}
-                                src={`${API_URL}${userData.profileImg}`}
+                                src={`https://greenshopbackend.up.railway.app${userData.profileImg}`}
                                 alt="user"
                             />
                         ) : (
