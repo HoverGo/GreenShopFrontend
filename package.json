@@ -3,13 +3,12 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://greenshopfrontend-production.up.railway.app/",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
-        "start": "npx http-server ./dist --proxy http://localhost:5173"
+        "start": "npx http-server ./dist"
     },
     "dependencies": {
         "axios": "^1.6.0",
