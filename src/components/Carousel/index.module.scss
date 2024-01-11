@@ -1,90 +1,93 @@
 @import "../../variables.scss";
 
 .Carousel {
-	margin-top: 12px;
-	background: linear-gradient(
-		98deg,
-		rgba(245, 245, 245, 0.5) -23.46%,
-		rgba(245, 245, 245, 0.5) 107.51%
-	);
+    margin-top: 12px;
+    background: linear-gradient(
+        98deg,
+        rgba(245, 245, 245, 0.5) -23.46%,
+        rgba(245, 245, 245, 0.5) 107.51%
+    );
 }
 
 .carouselFirst {
-	height: 450px;
-	text-align: start;
-	display: flex;
-	justify-content: space-between;
-	&Left {
-		padding-left: 40px;
-		h5 {
-			padding-top: 68px;
-			color: $mainColor;
-			font-size: 14px;
-			font-weight: 500;
-			letter-spacing: 1.4px;
-			text-transform: uppercase;
-		}
-		h1 {
-			max-width: 530px;
-			padding-top: 7px;
-			color: $mainColor;
-			font-size: 70px;
-			font-weight: 900;
-			line-height: 70px;
-			text-transform: uppercase;
-			span {
-				color: $secondaryColor;
-				font-size: 70px;
-				font-weight: 900;
-				line-height: 70px;
-				text-transform: uppercase;
-			}
-		}
-		p {
-			max-width: 557px;
-			padding-top: 5px;
-			padding-bottom: 44px;
-			color: $smallTextColor;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 24px;
-		}
+    height: 450px;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    &Left {
+        padding-left: 40px;
+        h5 {
+            padding-top: 68px;
+            color: $mainColor;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+        h1 {
+            max-width: 530px;
+            padding-top: 7px;
+            color: $mainColor;
+            font-size: 70px;
+            font-weight: 900;
+            line-height: 70px;
+            text-transform: uppercase;
+            span {
+                color: $secondaryColor;
+                font-size: 70px;
+                font-weight: 900;
+                line-height: 70px;
+                text-transform: uppercase;
+            }
+        }
+        p {
+            max-width: 557px;
+            padding-top: 5px;
+            padding-bottom: 44px;
+            color: $smallTextColor;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+        }
 
-		button {
-			padding: 10px 27px;
-			border-radius: 6px;
-			background: $secondaryColor;
-			a {
-				color: $tertiaryColor;
-				font-weight: 700;
-				line-height: 20px;
-				text-transform: uppercase;
-			}
-		}
-	}
-	&Right {
-		position: relative;
-		.plantBig {
-			top: -50px;
-			right: 0px;
-			position: absolute;
-			width: 518px !important;
-			height: 518px !important;
-		}
-		.plantSmall {
-			position: absolute;
-			bottom: 20px;
-			right: 330px;
-			width: 135px !important;
-			height: 135px !important;
-		}
-	}
+        button {
+            padding: 10px 27px;
+            border-radius: 6px;
+            background: $secondaryColor;
+            a {
+                color: $tertiaryColor;
+                font-weight: 700;
+                line-height: 20px;
+                text-transform: uppercase;
+            }
+            &:hover {
+                background-color: darken($secondaryColor, 10%);
+            }
+        }
+    }
+    &Right {
+        position: relative;
+        .plantBig {
+            top: -50px;
+            right: 0px;
+            position: absolute;
+            width: 518px !important;
+            height: 518px !important;
+        }
+        .plantSmall {
+            position: absolute;
+            bottom: 20px;
+            right: 330px;
+            width: 135px !important;
+            height: 135px !important;
+        }
+    }
 }
 
 .Carousel {
-	:global(.control-dots .dot) {
-		background-color: $secondaryColor;
-		box-shadow: none;
-		margin: 0 4px;
-	}
+    :global(.control-dots .dot) {
+        background-color: $secondaryColor;
+        box-shadow: none;
+        margin: 0 4px;
+    }
 }

@@ -1,59 +1,59 @@
 @import "../../../variables.scss";
 
 .blogs {
-	margin-bottom: 125px;
-	h4 {
-		padding-bottom: 15px;
-		color: $mainColor;
-		text-align: center;
-		font-size: 30px;
-		font-weight: 700;
-		line-height: 16px;
-	}
-	.topText {
-		padding-bottom: 35px;
-		color: $smallTextColor;
-		text-align: center;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 24px;
-	}
-	.cards {
-		display: flex;
-		.card {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			background-color: $background;
-			max-width: 268px;
-			&:not(:last-child) {
-				margin-right: 44px;
-			}
-			&Text {
-				.green {
-					padding-top: 8px;
-					padding-bottom: 4px;
-					color: $secondaryColor;
-					font-size: 14px;
-					font-weight: 500;
-					line-height: 16px;
-				}
-				.black {
-					max-width: 200px;
-					padding-bottom: 4px;
-					color: $mainColor;
-					font-size: 20px;
-					font-weight: 700;
-					line-height: 26px;
-				}
-				.grey {
-					max-width: 242px;
-					color: $smallTextColor;
-					font-size: 14px;
-					font-weight: 400;
-					line-height: 22px;
-				}
-			}
-		}
-	}
+    margin-bottom: 125px;
+    h4 {
+        padding-bottom: 15px;
+        color: $mainColor;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 16px;
+    }
+    .topText {
+        padding-bottom: 35px;
+        color: $smallTextColor;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    .cards {
+        display: flex;
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $background;
+            max-width: 268px;
+            &:not(:last-child) {
+                margin-right: 44px;
+            }
+            &Text {
+                .green {
+                    padding-top: 8px;
+                    padding-bottom: 4px;
+                    color: $secondaryColor;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+                .black {
+                    max-width: 200px;
+                    padding-bottom: 4px;
+                    color: $mainColor;
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 26px;
+                }
+                .grey {
+                    max-width: 242px;
+                    color: $smallTextColor;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
 }

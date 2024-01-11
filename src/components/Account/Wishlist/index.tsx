@@ -4,58 +4,63 @@ import s from "./index.module.scss";
 import { getAuthHeaders } from "../../../api/auth";
 import API_URL from "../../../api/apiConfig";
 
-
 interface CardItem {
-	product: {
-		mainImg: string;
-		name: string;
-		discount: boolean;
-		mainPrice: string;
-		salePrice: string;
-		id: string;
-	};
+    product: {
+        mainImg: string;
+        name: string;
+        discount: boolean;
+        mainPrice: string;
+        salePrice: string;
+        id: string;
+    };
 }
 
 const Wishlist: React.FC = () => {
-	const [cardData, setCardData] = useState<CardItem[] | null>(null);
+    const [cardData, setCardData] = useState<CardItem[] | null>(null);
 
-	useEffect(() => {
-		const fetchCardData = async () => {
-			try {
-				const authHeaders = getAuthHeaders();
-				const response = await axios.get(`${API_URL}/product/favourite/`, {
-					headers: {
-						Authorization: authHeaders?.headers?.Authorization
-					}
-				});
+    useEffect(() => {
+        const fetchCardData = async () => {
+            try {
+                const authHeaders = getAuthHeaders();
+                const response = await axios.get(
+                    `${API_URL}/product/favourite/`,
+                    {
+                        headers: {
+                            Authorization: authHeaders?.headers?.Authorization,
+                        },
+                    }
+                );
 
-				const fetchedData: CardItem[] = response.data;
-				setCardData(fetchedData);
-			} catch (error) {
-				console.error("Error while receiving card data:", error);
-			}
-		};
-		console.log(cardData);
-		fetchCardData();
-	}, []);
+                const fetchedData: CardItem[] = response.data;
+                setCardData(fetchedData);
+            } catch (error) {
+                console.error("Error while receiving card data:", error);
+            }
+        };
+        console.log(cardData);
+        fetchCardData();
+    }, []);
 
-	const handleRemoveFromFavorites = async (productId: string) => {
-		try {
-			const authHeaders = getAuthHeaders();
-			await axios.delete(`${API_URL}/product/favourite/${productId}/`, {
-				headers: {
-					Authorization: authHeaders?.headers?.Authorization
-				}
-			});
-			console.log(productId);
+    const handleRemoveFromFavorites = async (productId: string) => {
+        try {
+            const authHeaders = getAuthHeaders();
+            await axios.delete(`${API_URL}/product/favourite/${productId}/`, {
+                headers: {
+                    Authorization: authHeaders?.headers?.Authorization,
+                },
+            });
+            console.log(productId);
 
-			setCardData(
-				(prevCardData) => prevCardData?.filter((item) => item.product.id !== productId) || null
-			);
-		} catch (error) {
-			console.error("Error while removing card from favorites:", error);
-		}
-	};
+            setCardData(
+                (prevCardData) =>
+                    prevCardData?.filter(
+                        (item) => item.product.id !== productId
+                    ) || null
+            );
+        } catch (error) {
+            console.error("Error while removing card from favorites:", error);
+        }
+    };
 
 	return (
 		<div className={s.wishlist}>

@@ -269,6 +269,11 @@
                     color: $secondaryColor;
                     border: 1px solid $secondaryColor;
 
+                    &:hover {
+                        background-color: $secondaryColor;
+                        color: white;
+                    }
+
                     &:active {
                         color: $tertiaryColor;
                         background: $secondaryColor;
@@ -515,7 +520,7 @@
                     transition: background-color 0.3s;
 
                     &:hover {
-                        background-color: $secondaryColor;
+                        background-color: darken($secondaryColor, 10%);
                     }
                 }
             }

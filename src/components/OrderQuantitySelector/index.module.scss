@@ -1,269 +1,274 @@
 @import "../../variables.scss";
 .OrderQuantitySelector {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 50px;
-	.goods {
-		max-width: 800px;
-		.categories {
-			display: flex;
-			border-bottom: 1px solid rgba($secondaryColor, 0.3);
-			padding-bottom: 11px;
-			h5 {
-				color: $mainColor;
-				font-size: 16px;
-				font-weight: 500;
-				line-height: 16px;
-			}
-			.size {
-				padding-left: 65px;
-			}
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    .goods {
+        max-width: 800px;
+        .categories {
+            display: flex;
+            border-bottom: 1px solid rgba($secondaryColor, 0.3);
+            padding-bottom: 11px;
+            h5 {
+                color: $mainColor;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            .size {
+                padding-left: 65px;
+            }
 
-			.price {
-				padding-left: 40px;
-			}
-			.quantity {
-				padding-left: 60px;
-			}
-			.total {
-				padding-left: 65px;
-			}
+            .price {
+                padding-left: 40px;
+            }
+            .quantity {
+                padding-left: 60px;
+            }
+            .total {
+                padding-left: 65px;
+            }
 
-			.products {
-				padding-right: 180px;
-			}
-		}
-		.goodsBlock {
-			background: #fbfbfb;
-			margin-top: 11px;
-			display: grid;
-			align-items: center;
-			grid-template-columns: repeat(6, 1fr);
-			grid-template-rows: 1fr;
-			grid-column-gap: 40px;
-			justify-items: start;
+            .products {
+                padding-right: 180px;
+            }
+        }
+        .goodsBlock {
+            background: #fbfbfb;
+            margin-top: 11px;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: 1fr;
+            grid-column-gap: 40px;
+            justify-items: start;
 
-			.info {
-				display: flex;
-				align-items: center;
-				mix-blend-mode: multiply;
-				width: 280px;
-				.nameSku {
-					padding-left: 14px;
-					p {
-						color: $mainColor;
-						font-size: 16px;
-						font-weight: 500;
-						line-height: 16px;
-					}
-					.sku {
-						padding-top: 6px;
-						color: $saleColor;
-						font-size: 14px;
-						font-weight: 400;
-						line-height: 16px;
+            .info {
+                display: flex;
+                align-items: center;
+                mix-blend-mode: multiply;
+                width: 280px;
+                .nameSku {
+                    padding-left: 14px;
+                    p {
+                        color: $mainColor;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 16px;
+                    }
+                    .sku {
+                        padding-top: 6px;
+                        color: $saleColor;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 16px;
 
-						span {
-							color: $smallTextColor;
-							font-size: 14px;
-							font-weight: 400;
-							line-height: 16px;
-						}
-					}
-				}
-			}
-			.size {
-				color: #727272;
-				font-size: 14px;
-				font-weight: 500;
-				line-height: 16px;
-			}
-			.price {
-				color: $smallTextColor;
-				font-size: 16px;
-				font-weight: 500;
-				line-height: 16px;
-			}
+                        span {
+                            color: $smallTextColor;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+            .size {
+                color: #727272;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            .price {
+                color: $smallTextColor;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 16px;
+            }
 
-			.quantity {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 100px;
+            .quantity {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100px;
 
-				span {
-					padding: 0 10px;
-				}
+                span {
+                    padding: 0 10px;
+                }
 
-				.plus,
-				.minus {
-					cursor: pointer;
-					background: $secondaryColor;
-					width: 22px;
-					height: 25px;
-					border-radius: 29px;
-					color: #fff;
-					text-align: center;
-					font-size: 20px;
-					font-weight: 400;
-					line-height: 16px;
-				}
-			}
+                .plus,
+                .minus {
+                    cursor: pointer;
+                    background: $secondaryColor;
+                    width: 22px;
+                    height: 25px;
+                    border-radius: 29px;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 16px;
+                }
+            }
 
-			.total {
-				width: 100px;
-				color: $secondaryColor;
-				font-size: 16px;
-				font-weight: 700;
-				line-height: 16px;
-			}
+            .total {
+                width: 100px;
+                color: $secondaryColor;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+            }
 
-			svg {
-				fill: #727272;
-				width: 24px;
-				height: 24px;
-				margin-right: 26px;
-				cursor: pointer;
-				&:active {
-					fill: red;
-				}
-			}
-		}
-	}
+            svg {
+                fill: #727272;
+                width: 24px;
+                height: 24px;
+                margin-right: 26px;
+                cursor: pointer;
+                &:active {
+                    fill: red;
+                }
+            }
+        }
+    }
 
-	.totalPrice {
-		margin-left: 90px;
-		width: 100%;
-		h1 {
-			color: $mainColor;
-			font-size: 20px;
-			font-weight: 700;
-			line-height: 16px;
-			border-bottom: 1px solid rgba($secondaryColor, 0.3);
-			padding-bottom: 11px;
-		}
-		h3 {
-			margin-top: 11px;
-			margin-bottom: 6px;
-			color: $mainColor;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 16px;
-		}
+    .totalPrice {
+        margin-left: 90px;
+        width: 100%;
+        h1 {
+            color: $mainColor;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 16px;
+            border-bottom: 1px solid rgba($secondaryColor, 0.3);
+            padding-bottom: 11px;
+        }
+        h3 {
+            margin-top: 11px;
+            margin-bottom: 6px;
+            color: $mainColor;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16px;
+        }
 
-		.couponForm {
-			display: flex;
-			align-items: center;
+        .couponForm {
+            display: flex;
+            align-items: center;
 
-			input {
-				padding: 13px 9px;
-				width: 100%;
-				height: 40px;
-				border-radius: 3px;
-				border: 2px solid $secondaryColor;
+            input {
+                padding: 13px 9px;
+                width: 100%;
+                height: 40px;
+                border-radius: 3px;
+                border: 2px solid $secondaryColor;
 
-				outline: none;
+                outline: none;
 
-				&::placeholder {
-					color: #a5a5a5;
-					font-size: 14px;
-					font-weight: 400;
-					line-height: 15px;
-				}
-			}
-			.applyCoupon,
-			.deleteCoupon {
-				cursor: pointer;
-				margin-left: -4px;
-				padding: 12px 25px 12px 35px;
-				color: $tertiaryColor;
-				font-size: 15px;
-				font-weight: 700;
-				line-height: 16px;
-				width: 102px;
-				height: 40px;
-				border-radius: 0px 3px 3px 0px;
-				background: $secondaryColor;
-			}
-			.deleteCoupon {
-				font-size: 15px;
-				padding: 0 25px 0 25px;
-			}
-		}
+                &::placeholder {
+                    color: #a5a5a5;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 15px;
+                }
+            }
+            .applyCoupon,
+            .deleteCoupon {
+                cursor: pointer;
+                margin-left: -4px;
+                padding: 12px 25px 12px 35px;
+                color: $tertiaryColor;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 16px;
+                width: 102px;
+                height: 40px;
+                border-radius: 0px 3px 3px 0px;
+                background: $secondaryColor;
+            }
+            .deleteCoupon {
+                font-size: 15px;
+                padding: 0 25px 0 25px;
+            }
+        }
 
-		.pricing {
-			display: flex;
-			justify-content: space-between;
-			&:first-of-type {
-				margin-top: 30px;
-			}
-			&:not(:last-child) {
-				padding-bottom: 21px;
-			}
-			.text {
-				color: $mainColor;
-				font-size: 16px;
-				font-weight: 400;
-				line-height: 16px;
-			}
-			.price {
-				color: $mainColor;
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            &:first-of-type {
+                margin-top: 30px;
+            }
+            &:not(:last-child) {
+                padding-bottom: 21px;
+            }
+            .text {
+                color: $mainColor;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+            .price {
+                color: $mainColor;
 
-				font-size: 18px;
+                font-size: 18px;
 
-				font-weight: 500;
-				line-height: 16px;
-			}
-		}
+                font-weight: 500;
+                line-height: 16px;
+            }
+        }
 
-		.total {
-			display: flex;
-			justify-content: space-between;
-			margin: 50px 0 30px 0;
-			p {
-				color: $mainColor;
-				font-size: 16px;
-				font-weight: 700;
-				line-height: 16px;
-			}
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0 30px 0;
+            p {
+                color: $mainColor;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+            }
 
-			.price {
-				color: $secondaryColor;
-				font-size: 18px;
-				font-weight: 700;
-				line-height: 16px;
-			}
-		}
+            .price {
+                color: $secondaryColor;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
 
-		.checkout,
-		.checkoutDisabled {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 40px;
-			background: $secondaryColor;
-			border-radius: 3px;
-			cursor: pointer;
+        .checkout,
+        .checkoutDisabled {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            background: $secondaryColor;
+            border-radius: 3px;
+            cursor: pointer;
 
-			color: $tertiaryColor;
-			font-size: 15px;
-			font-weight: 700;
-			line-height: 16px;
-		}
+            color: $tertiaryColor;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+        .checkout {
+            &:hover {
+                background-color: darken($secondaryColor, 10%);
+            }
+        }
 
-		.checkoutDisabled {
-			background: gray;
-			color: $mainColor;
-		}
-		.continue {
-			margin-top: 15px;
-			color: $secondaryColor;
-			font-size: 15px;
-			font-weight: 400;
-			line-height: 16px;
-			display: flex;
-			justify-content: center;
-		}
-	}
+        .checkoutDisabled {
+            background: gray;
+            color: $mainColor;
+        }
+        .continue {
+            margin-top: 15px;
+            color: $secondaryColor;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 16px;
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
