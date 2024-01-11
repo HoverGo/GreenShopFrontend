@@ -68,7 +68,7 @@ const Wishlist: React.FC = () => {
 				cardData.map((item) => (
 					<div className={s.card} key={item.product.id}>
 						<div className={s.cardImg}>
-							<img src='https://greenshopbackend.up.railway.app/${item.product.mainImg}' alt={item.product.name} />
+						<img src={`https://greenshopbackend.up.railway.app${item.product.mainImg}`} alt={item.product.name} />
 							<div className={s.hoverLinks}>
 								<button onClick={() => handleRemoveFromFavorites(item.product.id)}>
 									<img width={15} height={15} src="img/wishlist/cross.svg" alt="cross" />
