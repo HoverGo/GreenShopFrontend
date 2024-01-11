@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import s from "./index.module.scss";
 import { getAuthHeaders } from "../../../api/auth";
+import API_URL from "../../../api/apiConfig";
+
 
 interface CardItem {
 	product: {
@@ -21,7 +23,7 @@ const Wishlist: React.FC = () => {
 		const fetchCardData = async () => {
 			try {
 				const authHeaders = getAuthHeaders();
-				const response = await axios.get(`http://127.0.0.1:8000/shop/product/favourite/`, {
+				const response = await axios.get(`${API_URL}/product/favourite/`, {
 					headers: {
 						Authorization: authHeaders?.headers?.Authorization
 					}
@@ -40,7 +42,7 @@ const Wishlist: React.FC = () => {
 	const handleRemoveFromFavorites = async (productId: string) => {
 		try {
 			const authHeaders = getAuthHeaders();
-			await axios.delete(`http://127.0.0.1:8000/shop/product/favourite/${productId}/`, {
+			await axios.delete(`${API_URL}/product/favourite/${productId}/`, {
 				headers: {
 					Authorization: authHeaders?.headers?.Authorization
 				}
@@ -61,7 +63,7 @@ const Wishlist: React.FC = () => {
 				cardData.map((item) => (
 					<div className={s.card} key={item.product.id}>
 						<div className={s.cardImg}>
-							<img src={item.product.mainImg} alt={item.product.name} />
+							<img src='https://greenshopbackend.up.railway.app/${item.product.mainImg}' alt={item.product.name} />
 							<div className={s.hoverLinks}>
 								<button onClick={() => handleRemoveFromFavorites(item.product.id)}>
 									<img width={15} height={15} src="img/wishlist/cross.svg" alt="cross" />
