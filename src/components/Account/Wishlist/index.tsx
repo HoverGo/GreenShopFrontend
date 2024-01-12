@@ -60,50 +60,30 @@ const Wishlist: React.FC = () => {
         }
     };
 
-    return (
-        <div className={s.wishlist}>
-            {cardData &&
-                cardData.map((item) => (
-                    <div className={s.card} key={item.product.id}>
-                        <div className={s.cardImg}>
-                            <img
-                                src={item.product.mainImg}
-                                alt={item.product.name}
-                            />
-                            <div className={s.hoverLinks}>
-                                <button
-                                    onClick={() =>
-                                        handleRemoveFromFavorites(
-                                            item.product.id
-                                        )
-                                    }
-                                >
-                                    <img
-                                        width={15}
-                                        height={15}
-                                        src="img/wishlist/cross.svg"
-                                        alt="cross"
-                                    />
-                                </button>
-                            </div>
-                        </div>
-                        <div className={s.goodsInfo}>
-                            <p className={s.goodsName}>{item.product.name}</p>
-                            <div className={s.goodsPrices}>
-                                <p className={s.main}>
-                                    {item.product.salePrice}
-                                </p>
-                                {item.product.discount ? (
-                                    <p className={s.sale}>
-                                        {item.product.mainPrice}
-                                    </p>
-                                ) : null}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-        </div>
-    );
+	return (
+		<div className={s.wishlist}>
+			{cardData &&
+				cardData.map((item) => (
+					<div className={s.card} key={item.product.id}>
+						<div className={s.cardImg}>
+						<img src={`https://greenshopbackend.up.railway.app${item.product.mainImg}`} alt={item.product.name} />
+							<div className={s.hoverLinks}>
+								<button onClick={() => handleRemoveFromFavorites(item.product.id)}>
+									<img width={15} height={15} src="img/wishlist/cross.svg" alt="cross" />
+								</button>
+							</div>
+						</div>
+						<div className={s.goodsInfo}>
+							<p className={s.goodsName}>{item.product.name}</p>
+							<div className={s.goodsPrices}>
+								<p className={s.main}>{item.product.salePrice}</p>
+								{item.product.discount ? <p className={s.sale}>{item.product.mainPrice}</p> : null}
+							</div>
+						</div>
+					</div>
+				))}
+		</div>
+	);
 };
 
 export default Wishlist;
