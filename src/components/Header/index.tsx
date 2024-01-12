@@ -61,8 +61,6 @@ const Header: React.FC = () => {
         fetchUserData();
     };
 
-    console.log(activeMethod);
-
     return (
         <div className={s.header}>
             <Link to="/">

@@ -99,8 +99,6 @@ const OrderQuantitySelector: React.FC = () => {
             });
     };
 
-    console.log(orderInfo);
-
     const updateQuantity = (
         idProduct: number,
         sizeId: number,

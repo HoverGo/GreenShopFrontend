@@ -37,7 +37,6 @@ const Wishlist: React.FC = () => {
                 console.error("Error while receiving card data:", error);
             }
         };
-        console.log(cardData);
         fetchCardData();
     }, []);
 
@@ -49,7 +48,6 @@ const Wishlist: React.FC = () => {
                     Authorization: authHeaders?.headers?.Authorization,
                 },
             });
-            console.log(productId);
 
             setCardData(
                 (prevCardData) =>

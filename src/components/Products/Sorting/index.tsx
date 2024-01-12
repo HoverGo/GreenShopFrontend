@@ -5,9 +5,6 @@ const Sorting: React.FC<{
     handleSaleFilter: (id?: number) => void;
     handleNewArrivalFilter: (id?: number) => void;
     resetAllFilters: () => void;
-    appliedFilters: {
-        sortBy: string;
-    };
     handleFilterChange: (newFilters: { sortBy: string }) => void;
 }> = ({
     handleSaleFilter,
@@ -15,9 +12,11 @@ const Sorting: React.FC<{
     handleFilterChange,
     handleNewArrivalFilter,
 }) => {
-    const [activeCategory, setActiveCategory] = useState<number | null>(1);
+    const [AllPlantsCategory, setAllPlantsCategory] = useState(false);
     const [isArrowActive, setIsArrowActive] = useState(false);
     const [sortBy, setSortBy] = useState("Default sorting");
+    const [isSaleClicked, setIsSaleClicked] = useState(false);
+    const [isNewArrivalsClicked, setIsNewArrivalsClicked] = useState(false);
 
     const menuRef = useRef(null as HTMLDivElement | null);
 
@@ -25,13 +24,6 @@ const Sorting: React.FC<{
         setSortBy(option);
         toggleArrowStyle();
         handleFilterChange({ sortBy: option });
-    };
-
-    const handleCategoryClick = (id: number) => {
-        setActiveCategory(id);
-        if (id === 1) {
-            resetAllFilters();
-        }
     };
 
     const toggleArrowStyle = () => {
@@ -47,21 +39,29 @@ const Sorting: React.FC<{
         }
     };
 
-    const handleSaleClick = (id: number) => {
-        handleSaleFilter(id);
-        if (id === 3) {
-            handleSaleFilter();
-        }
+    const handleAllPlantsClick = () => {
+        resetAllFilters();
+        setIsNewArrivalsClicked(false);
+        setIsSaleClicked(false);
+        setAllPlantsCategory(true);
     };
 
-    const handleNewArrivalClick = (id: number) => {
-        handleNewArrivalFilter(id);
-        if (id === 3) {
-            handleNewArrivalFilter();
-        }
+    const handleSaleClick = () => {
+        handleSaleFilter();
+        setIsNewArrivalsClicked(false);
+        setAllPlantsCategory(false);
+        setIsSaleClicked(true);
+    };
+
+    const handleNewArrivalClick = () => {
+        handleNewArrivalFilter();
+        setIsSaleClicked(false);
+        setAllPlantsCategory(false);
+        setIsNewArrivalsClicked(true);
     };
 
     useEffect(() => {
+        handleAllPlantsClick();
         document.addEventListener("mousedown", closeMenu);
         return () => {
             document.removeEventListener("mousedown", closeMenu);
@@ -72,26 +72,20 @@ const Sorting: React.FC<{
         <div className={s.sorting}>
             <div className={s.category}>
                 <h5
-                    onClick={() => handleCategoryClick(1)}
-                    className={activeCategory === 1 ? s.activeCategory : ""}
+                    onClick={handleAllPlantsClick}
+                    className={AllPlantsCategory ? s.activeCategory : ""}
                 >
                     All Plants
                 </h5>
                 <h5
-                    onClick={() => {
-                        handleCategoryClick(2);
-                        handleNewArrivalClick(2);
-                    }}
-                    className={activeCategory === 2 ? s.activeCategory : ""}
+                    onClick={handleNewArrivalClick}
+                    className={isNewArrivalsClicked ? s.activeCategory : ""}
                 >
                     New Arrivals
                 </h5>
                 <h5
-                    onClick={() => {
-                        handleCategoryClick(3);
-                        handleSaleClick(3);
-                    }}
-                    className={activeCategory === 3 ? s.activeCategory : ""}
+                    onClick={handleSaleClick}
+                    className={isSaleClicked ? s.activeCategory : ""}
                 >
                     Sale
                 </h5>

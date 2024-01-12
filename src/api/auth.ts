@@ -113,8 +113,6 @@ const refreshAccessToken = async () => {
             throw new Error("Refresh token is missing");
         }
 
-        console.log("Refreshing access token...");
-
         const response = await axios.post(`${apiBaseUrl}token/refresh/`, {
             refresh,
         });

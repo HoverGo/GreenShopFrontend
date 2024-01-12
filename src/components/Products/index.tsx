@@ -45,10 +45,12 @@ const Products: React.FC<ProductsProps> = () => {
 
     const handleSaleFilter = () => {
         setIsSaleClicked(true);
+        setIsNewArrivalsClicked(false);
     };
 
     const handleNewArrivalFilter = () => {
         setIsNewArrivalsClicked(true);
+        setIsSaleClicked(false);
     };
 
     const resetAllFilters = () => {
@@ -81,7 +83,6 @@ const Products: React.FC<ProductsProps> = () => {
             <div className={s.rightBlock}>
                 <Sorting
                     handleFilterChange={handleByChange}
-                    appliedFilters={appliedFilters}
                     handleSaleFilter={handleSaleFilter}
                     handleNewArrivalFilter={handleNewArrivalFilter}
                     resetAllFilters={resetAllFilters}
