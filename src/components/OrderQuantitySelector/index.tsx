@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getAuthHeaders } from "../../api/auth";
 import API_URL from "../../api/apiConfig";
 
@@ -180,7 +180,11 @@ const OrderQuantitySelector: React.FC = () => {
                     <h5 className={s.total}>Total</h5>
                 </div>
                 {orderInfo.output.map((item) => (
-                    <div key={item.id} className={s.goodsBlock}>
+                    <Link
+                        to={`/shop/${item.idProduct}`}
+                        key={item.id}
+                        className={s.goodsBlock}
+                    >
                         <div className={s.info}>
                             <img
                                 width={70}
@@ -232,7 +236,7 @@ const OrderQuantitySelector: React.FC = () => {
                         >
                             <Delete />
                         </button>
-                    </div>
+                    </Link>
                 ))}
             </div>
             <div className={s.totalPrice}>
@@ -277,7 +281,7 @@ const OrderQuantitySelector: React.FC = () => {
                     <p className={s.price}>{orderInfo.prices.totalPrice}</p>
                 </div>
 
-                <NavLink
+                <Link
                     to={areProductsInCart ? "/shop/checkout" : "/"}
                     className={
                         areProductsInCart ? s.checkout : s.checkoutDisabled
@@ -286,10 +290,10 @@ const OrderQuantitySelector: React.FC = () => {
                     {areProductsInCart
                         ? "Proceed To Checkout"
                         : "Select product"}
-                </NavLink>
-                <NavLink to={"/"} className={s.continue}>
+                </Link>
+                <Link to={"/"} className={s.continue}>
                     Continue Shopping
-                </NavLink>
+                </Link>
             </div>
         </div>
     );

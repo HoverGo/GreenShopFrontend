@@ -83,8 +83,6 @@ const Goods: React.FC<GoodsProps> = ({
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    console.log(items);
-
     useEffect(() => {
         axios
             .get(`${API_URL}/product/`)

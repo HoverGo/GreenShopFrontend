@@ -114,17 +114,6 @@ const Register: React.FC<RegisterProps> = ({
                 />
                 <button type="submit">Register</button>
             </form>
-            <p className={s.loginOption}>Or login with</p>
-            <div className={s.anotherMethods}>
-                <button>
-                    <img src="/img/header/google.svg" alt="google" />
-                    <p>Login with Google</p>
-                </button>
-                <button>
-                    <img src="/img/header/facebook.svg" alt="facebook" />
-                    <p>Login with Facebook</p>
-                </button>
-            </div>
         </div>
     );
 };
