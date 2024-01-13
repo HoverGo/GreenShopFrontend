@@ -10,6 +10,7 @@ const Details: React.FC = () => {
     const [passwordVisible, setPasswordVisible] = React.useState(false);
     const [imageSrc, setImageSrc] = React.useState<string | null>(null);
     const [passwordChanged, setPasswordChanged] = React.useState(false);
+    const [newEmail, setNewEmail] = React.useState("");
 
     const currentPasswordRef = React.useRef<HTMLInputElement>(null);
     const newPasswordRef = React.useRef<HTMLInputElement>(null);
@@ -129,6 +130,35 @@ const Details: React.FC = () => {
         }
     };
 
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewEmail(e.target.value);
+    };
+
+    const handleChangeEmail = async () => {
+        try {
+            const token = getAuthHeaders();
+            const response = await axios.post(
+                `${API_URL}/change-email-verify/`,
+                { newEmail },
+                {
+                    headers: {
+                        Authorization: token?.headers?.Authorization,
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                alert(
+                    "The email address has been successfully changed and a confirmation link has been sent to the new email address."
+                );
+                setNewEmail("");
+            }
+        } catch (error) {
+            console.error("Error changing email: ", error);
+            alert("Error changing email. Please try again later.");
+        }
+    };
+
     return (
         <div className={s.details}>
             <h5>Personal Information</h5>
@@ -137,10 +167,21 @@ const Details: React.FC = () => {
                     <form className={s.email}>
                         <label htmlFor="email">
                             <p>Email address</p>
-                            <input type="text" id="email" name="email" />
+                            <input
+                                type="text"
+                                id="email"
+                                name="email"
+                                value={newEmail}
+                                onChange={handleEmailChange}
+                            />
                         </label>
                     </form>
-                    <button className={s.changeEmail}>Change Email</button>
+                    <button
+                        className={s.changeEmail}
+                        onClick={handleChangeEmail}
+                    >
+                        Change Email
+                    </button>
                 </div>
 
                 <div className={s.userImgBlock}>
@@ -234,7 +275,7 @@ const Details: React.FC = () => {
                     <div className={s.passwordContainer}>
                         <input
                             ref={newPasswordRef}
-                            type={passwordVisible ? "text" : "password"}
+                            type={passwordVisible ? "text" : "passwordc"}
                             name="newPassword"
                         />
                         <img

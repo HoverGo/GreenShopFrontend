@@ -180,12 +180,8 @@ const OrderQuantitySelector: React.FC = () => {
                     <h5 className={s.total}>Total</h5>
                 </div>
                 {orderInfo.output.map((item) => (
-                    <Link
-                        to={`/shop/${item.idProduct}`}
-                        key={item.id}
-                        className={s.goodsBlock}
-                    >
-                        <div className={s.info}>
+                    <div key={item.id} className={s.goodsBlock}>
+                        <Link to={`/shop/${item.idProduct}`} className={s.info}>
                             <img
                                 width={70}
                                 height={70}
@@ -198,7 +194,7 @@ const OrderQuantitySelector: React.FC = () => {
                                     SKU: <span>{item.sku}</span>
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                         <p className={s.size}>{item.size.name}</p>
                         <p className={s.price}>{item.price}</p>
                         <div className={s.quantity}>
@@ -236,7 +232,7 @@ const OrderQuantitySelector: React.FC = () => {
                         >
                             <Delete />
                         </button>
-                    </Link>
+                    </div>
                 ))}
             </div>
             <div className={s.totalPrice}>

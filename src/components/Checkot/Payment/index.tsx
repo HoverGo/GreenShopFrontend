@@ -54,9 +54,30 @@ export interface OrderInfo {
     output: OrderItem[];
 }
 
+interface OrderConfirmation {
+    id: number;
+    date: string;
+    totalPrice: string;
+    shippingPrice: string;
+    paymentMethod: string;
+}
+
+interface ServerOrderItem {
+    id: number;
+    name: string;
+    mainImg: string;
+    sku: string;
+    quantity: number;
+    subtotal: string;
+}
+
 const Payment: React.FC = () => {
     const [selectedMethod, setSelectedMethod] = useState<number | null>(null);
     const [selectedAddress, setSelectedAddress] = useState<number | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [orderConfirmation, setOrderConfirmation] =
+        useState<OrderConfirmation | null>(null);
+    const [orderItems, setOrderItems] = useState<ServerOrderItem[]>([]);
     const [shippingAddress, setShippingAddress] = useState<ShippingAddress[]>(
         []
     );
@@ -77,6 +98,10 @@ const Payment: React.FC = () => {
         fetchItems();
         fetchShippingAddresses();
     }, []);
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    };
 
     const fetchItems = () => {
         const authHeaders = getAuthHeaders();
@@ -185,10 +210,28 @@ const Payment: React.FC = () => {
                 },
             })
             .then((response) => {
-                setShippingAddress(response.data);
+                const { orderData, orderItemData } = response.data;
+                setOrderConfirmation(orderData);
+                setOrderItems(orderItemData);
+                setIsModalOpen(true);
             })
             .catch((error) => {
-                console.error("Error fetching shipping address data: ", error);
+                console.error("Error placing order:", error);
+
+                if (error.response) {
+                    const errorMessage =
+                        JSON.stringify(error.response.data.error) ||
+                        "Unknown server error";
+                    alert(`Server Error: ${errorMessage}`);
+                } else if (error.request) {
+                    alert(
+                        "No response from the server. Please try again later."
+                    );
+                } else {
+                    alert(
+                        "An unexpected error occurred. Please try again later."
+                    );
+                }
             });
     };
 
@@ -405,121 +448,119 @@ const Payment: React.FC = () => {
                         : "Place Order"}
                 </button>
             </div>
-            <div className={s.modalOverlay}>
-                <div className={s.modal}>
-                    <div className={s.thanksBlock}>
-                        <img
-                            className={s.crossImg}
-                            src="/img/checkout/cross.svg"
-                            alt="cross"
-                        />
-                        <img
-                            className={s.thanksImg}
-                            src="/img/checkout/thanks.svg"
-                            alt="thanks"
-                        />
-                        <p className={s.thanksText}>
-                            Your order has been received
-                        </p>
-                    </div>
-                    <div className={s.allInfoBlock}>
-                        <div className={s.info}>
-                            <p className={s.mark}>Order Number</p>
-                            <p className={s.value}>19586687</p>
+            {isModalOpen && (
+                <div className={s.modalOverlay}>
+                    <div className={s.modal}>
+                        <div className={s.thanksBlock}>
+                            <button onClick={handleModalClose}>
+                                <img
+                                    className={s.crossImg}
+                                    src="/img/checkout/cross.svg"
+                                    alt="cross"
+                                />
+                            </button>
+                            <img
+                                className={s.thanksImg}
+                                src="/img/checkout/thanks.svg"
+                                alt="thanks"
+                            />
+                            <p className={s.thanksText}>
+                                Your order has been received
+                            </p>
                         </div>
-                        <div className={s.info}>
-                            <p className={s.mark}>Date</p>
-                            <p className={s.value}>15 Sep, 2021</p>
-                        </div>
-                        <div className={s.info}>
-                            <p className={s.mark}>Total</p>
-                            <p className={s.value}>2,699.00</p>
-                        </div>
-                        <div className={s.info}>
-                            <p className={s.mark}>Payment Method</p>
-                            <p className={s.value}>Cash on delivery</p>
-                        </div>
-                    </div>
-                    <div className={s.orderDetails}>
-                        <p className={s.orderDetailsText}>Order Details</p>
-
-                        <div className={s.order}>
-                            <div className={s.orderMarkText}>
-                                <p>Products</p>
-                                <p className={s.qty}>Qty</p>
-                                <p className={s.subtotal}>Subtotal</p>
+                        <div className={s.allInfoBlock}>
+                            <div className={s.info}>
+                                <p className={s.mark}>Order Number</p>
+                                <p className={s.value}>
+                                    {orderConfirmation?.id}
+                                </p>
                             </div>
-
-                            <div className={s.orderCards}>
-                                <div className={s.orderCard}>
-                                    <img src="/img/goods/01.png" alt="plant" />
-
-                                    <div className={s.orderCardInfo}>
-                                        <p className={s.namePot}>
-                                            Barberton Daisy
-                                        </p>
-                                        <p className={s.skuPot}>
-                                            <span>SKU:</span> 1995751877966
-                                        </p>
-                                    </div>
-
-                                    <p className={s.orderCardQuantity}>(x 2)</p>
-                                    <p className={s.orderCardPrice}>$238.00</p>
-                                </div>
-                                <div className={s.orderCard}>
-                                    <img src="/img/goods/01.png" alt="plant" />
-
-                                    <div className={s.orderCardInfo}>
-                                        <p className={s.namePot}>
-                                            Barberton Daisy
-                                        </p>
-                                        <p className={s.skuPot}>
-                                            <span>SKU:</span> 1995751877966
-                                        </p>
-                                    </div>
-
-                                    <p className={s.orderCardQuantity}>(x 2)</p>
-                                    <p className={s.orderCardPrice}>$238.00</p>
-                                </div>
-                                <div className={s.orderCard}>
-                                    <img src="/img/goods/01.png" alt="plant" />
-
-                                    <div className={s.orderCardInfo}>
-                                        <p className={s.namePot}>
-                                            Barberton Daisy
-                                        </p>
-                                        <p className={s.skuPot}>
-                                            <span>SKU:</span> 1995751877966
-                                        </p>
-                                    </div>
-
-                                    <p className={s.orderCardQuantity}>(x 2)</p>
-                                    <p className={s.orderCardPrice}>$238.00</p>
-                                </div>
+                            <div className={s.info}>
+                                <p className={s.mark}>Date</p>
+                                <p className={s.value}>
+                                    {orderConfirmation?.date}
+                                </p>
                             </div>
+                            <div className={s.info}>
+                                <p className={s.mark}>Total</p>
+                                <p className={s.value}>
+                                    {orderConfirmation?.totalPrice}
+                                </p>
+                            </div>
+                            <div className={s.info}>
+                                <p className={s.mark}>Payment Method</p>
+                                <p className={s.value}>
+                                    {orderConfirmation?.paymentMethod}
+                                </p>
+                            </div>
+                        </div>
+                        <div className={s.orderDetails}>
+                            <p className={s.orderDetailsText}>Order Details</p>
 
-                            <div className={s.finalInfoBlock}>
-                                <div className={s.finalInfo}>
-                                    <p className={s.shipping}>Shiping</p>
-                                    <p className={s.shippingPrice}>$16.00</p>
+                            <div className={s.orderBlock}>
+                                <div className={s.orderMarkText}>
+                                    <p>Products</p>
+                                    <p className={s.qty}>Qty</p>
+                                    <p className={s.subtotal}>Subtotal</p>
                                 </div>
-                                <div className={s.finalInfo}>
-                                    <p className={s.total}>Total</p>
-                                    <p className={s.totalPrice}>$2,699.00</p>
+
+                                <div className={s.orderCards}>
+                                    {orderItems.map((item) => (
+                                        <div
+                                            className={s.orderCard}
+                                            key={item.id}
+                                        >
+                                            <img
+                                                src={`https://greenshopbackend.up.railway.app${item.mainImg}`}
+                                                alt={item.name}
+                                            />
+                                            <div className={s.orderCardInfo}>
+                                                <p className={s.namePot}>
+                                                    {item.name}
+                                                </p>
+                                                <p className={s.skuPot}>
+                                                    <span>SKU:</span> {item.sku}
+                                                </p>
+                                            </div>
+                                            <p className={s.orderCardQuantity}>
+                                                (x {item.quantity})
+                                            </p>
+                                            <p className={s.orderCardPrice}>
+                                                {item.subtotal}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className={s.finalInfoBlock}>
+                                    <div className={s.finalInfo}>
+                                        <p className={s.shipping}>Shipping</p>
+                                        <p className={s.shippingPrice}>
+                                            {orderConfirmation?.shippingPrice}
+                                        </p>
+                                    </div>
+                                    <div className={s.finalInfo}>
+                                        <p className={s.total}>Total</p>
+                                        <p className={s.totalPrice}>
+                                            {orderConfirmation?.totalPrice}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={s.trackBlock}>
-                        <p>
-                            Your order is currently being processed. You will
-                            receive an order confirmation email shortly with the
-                            expected delivery date for your items.
-                        </p>
-                        <button className={s.trackBtn}>Track your order</button>
+                        <div className={s.trackBlock}>
+                            <p>
+                                Your order is currently being processed. You
+                                will receive an order confirmation email shortly
+                                with the expected delivery date for your items.
+                            </p>
+                            <Link to={"/account"} className={s.trackBtn}>
+                                Check your order
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
